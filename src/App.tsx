@@ -1,24 +1,15 @@
 import styled from "@emotion/styled";
 import "./App.css";
-import SVG from "./assets/SVG";
+import Background from "./components/Background";
 
 function App() {
   return (
     <Holder>
-      <div className="star">
-        <SVG.BackgroundItems.star />
-      </div>
+      <Background />
     </Holder>
   );
 }
 
-const Holder = styled.div`
-  .star svg {
-    position: absolute;
-    top: 10em;
-    right: 10em;
-    width: 24em;
-  }
-`;
+const Holder = styled.div``;
 
 export default App;

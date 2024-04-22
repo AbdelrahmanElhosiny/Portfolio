@@ -1,5 +1,5 @@
-import BackgroundItems from "./background";
+import BackgroundShapes from "./BackgroundShapes";
 
-const SVG = { BackgroundItems };
+const SVG = { BackgroundShapes };
 
 export default SVG;
