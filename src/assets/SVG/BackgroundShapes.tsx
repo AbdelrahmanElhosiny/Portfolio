@@ -11,7 +11,7 @@ const BackgroundShapes = {
         <path
           d="M702.023 150.198L756.33 537.965L1110.45 705.023L722.687 759.33L555.628 1113.45L501.321 725.687L147.198 558.628L534.965 504.321L702.023 150.198Z"
           fill="url(#paint0_linear_2_9)"
-          fill-opacity="0.6"
+          fillOpacity="0.6"
         />
       </g>
       <defs>
@@ -22,9 +22,9 @@ const BackgroundShapes = {
           width="1263.26"
           height="1263.26"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -44,8 +44,8 @@ const BackgroundShapes = {
           y2="900.603"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#842555" />
-          <stop offset="1" stop-color="#AE7217" />
+          <stop stopColor="#842555" />
+          <stop offset="1" stopColor="#AE7217" />
         </linearGradient>
       </defs>
     </svg>
@@ -68,9 +68,9 @@ const BackgroundShapes = {
           width="1270"
           height="1270"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -104,9 +104,9 @@ const BackgroundShapes = {
           width="979"
           height="979"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
