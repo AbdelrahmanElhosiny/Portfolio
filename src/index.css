@@ -1,1 +1,19 @@
+@font-face {
+  font-family: "nav-text";
+  src: url(/src/assets/Fonts/nav-text.ttf);
+}
 
+@font-face {
+  font-family: "center-text";
+  src: url(/src/assets/Fonts/center-text.woff);
+}
+
+@font-face {
+  font-family: "rotating-text";
+  src: url(/src/assets/Fonts/rotating-text.ttf);
+}
+
+@font-face {
+  font-family: "secondary-text";
+  src: url(/src/assets/Fonts/secondary-text.ttf);
+}
