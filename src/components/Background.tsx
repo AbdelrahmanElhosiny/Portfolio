@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import SVG from "../../assets/SVG";
+import SVG from "../assets/SVG";
 
 const Background = () => {
   return (
@@ -18,13 +18,16 @@ const Background = () => {
 };
 
 const Holder = styled.div`
-  .yellow-circle svg {
+  position: relative;
+
+  .yellow-circle {
     position: absolute;
-    right: 0em;
+    right: 0;
+    top: 0;
     z-index: -1;
   }
 
-  .pink-circle svg {
+  .pink-circle {
     position: absolute;
     left: 0;
     z-index: -1;
@@ -34,7 +37,7 @@ const Holder = styled.div`
   .star svg {
     position: absolute;
     top: 100em;
-    right: 10em;
+    left: 10em;
     z-index: -1;
   }
 `;
