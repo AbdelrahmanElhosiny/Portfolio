@@ -13,6 +13,9 @@ const CenterText = () => {
 };
 
 const Holder = styled.div`
+  position: relative;
+  top: 6em;
+
   .center-text {
     font-size: 5em;
     ${fonts.CenterText}

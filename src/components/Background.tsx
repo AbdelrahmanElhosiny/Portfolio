@@ -20,21 +20,25 @@ const Background = () => {
 const Holder = styled.div`
   position: relative;
 
+  svg {
+    filter: blur(6em);
+  }
+
   .yellow-circle {
     position: absolute;
-    right: 0;
+    right: -2em;
     top: 0;
     z-index: -1;
   }
 
   .pink-circle {
     position: absolute;
-    left: 0;
+    left: -2em;
     z-index: -1;
     top: 20em;
   }
 
-  .star svg {
+  .star {
     position: absolute;
     top: 100em;
     left: 10em;
