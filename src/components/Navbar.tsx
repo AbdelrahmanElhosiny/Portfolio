@@ -22,14 +22,20 @@ const Navbar = () => {
 };
 
 const Holder = styled.div`
+  position: fixed;
   display: flex;
   align-items: center;
   padding-inline: 4em;
-  position: fixed;
+  height: 6em;
+  justify-content: space-between;
   width: calc(100% - 8em);
   z-index: 10;
   backdrop-filter: blur(20px);
-  justify-content: space-between;
+  mask-image: linear-gradient(
+    white 50%,
+    rgba(0, 0, 0, 0.9) 65%,
+    transparent 100%
+  );
 
   .logo svg {
     width: 4em;
@@ -48,7 +54,7 @@ const Holder = styled.div`
     padding: 0;
     font-size: 1.5em;
     ${fonts.NavText}
-    color: #7D7D7D;
+    color: #ffffff;
     justify-self: center;
   }
 

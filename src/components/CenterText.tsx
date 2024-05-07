@@ -17,7 +17,7 @@ const Holder = styled.div`
   top: 6em;
 
   .center-text {
-    font-size: 5em;
+    font-size: 4.5em;
     ${fonts.CenterText}
     display: grid;
   }
