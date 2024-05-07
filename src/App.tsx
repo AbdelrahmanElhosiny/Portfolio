@@ -10,15 +10,24 @@ function App() {
     <Holder>
       <Background />
       <Navbar />
-      <CenterText />
-      <MarqueeTrack />
+      <div className="section">
+        <CenterText />
+        <MarqueeTrack />
+      </div>
+      <div className="section">
+        <h1>hello</h1>
+      </div>
     </Holder>
   );
 }
 
 const Holder = styled.div`
   position: relative;
-  scroll-snap-type: y mandatory;
+
+  .section {
+    height: 100vh;
+    scroll-snap-align: start;
+  }
 `;
 
 export default App;

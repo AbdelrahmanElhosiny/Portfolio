@@ -10,9 +10,9 @@ const Background = () => {
       <div className="pink-circle">
         <SVG.BackgroundShapes.pinkCircle />
       </div>
-      <div className="star">
+      {/* <div className="star">
         <SVG.BackgroundShapes.star />
-      </div>
+      </div> */}
     </Holder>
   );
 };
