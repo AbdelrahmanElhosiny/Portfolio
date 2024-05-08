@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 import SVG from "../assets/SVG";
 import fonts from "../styles/fonts";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
@@ -9,9 +10,15 @@ const Navbar = () => {
         <SVG.Icons.logo />
       </div>
       <ul className="center-links">
-        <button className="link">About me</button>
-        <button className="link">About me</button>
-        <button className="link">About me</button>
+        <Link to="#about" className="link">
+          About
+        </Link>
+        <Link to="#skills" className="link">
+          Skills
+        </Link>
+        <Link to="#contact" className="link">
+          Contact
+        </Link>
       </ul>
       <div className="button">
         <button className="download-cv-button">DOWNLOAD CV</button>
@@ -64,6 +71,11 @@ const Holder = styled.div`
     color: inherit;
     background: none;
     border: none;
+    text-decoration: none;
+
+    :hover {
+      background-color: red;
+    }
   }
 
   .download-cv-button {

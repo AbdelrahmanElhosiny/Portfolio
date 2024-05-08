@@ -10,11 +10,14 @@ function App() {
     <Holder>
       <Background />
       <Navbar />
-      <div className="section">
+      <div id="about" className="section">
         <CenterText />
         <MarqueeTrack />
       </div>
-      <div className="section">
+      <div id="skills" className="section">
+        <h1>hello</h1>
+      </div>
+      <div id="contact" className="section">
         <h1>hello</h1>
       </div>
     </Holder>
@@ -28,6 +31,7 @@ const Holder = styled.div`
     height: 100vh;
     height: 100dvh;
     scroll-snap-align: start;
+    scroll-behavior: smooth;
   }
 `;
 
