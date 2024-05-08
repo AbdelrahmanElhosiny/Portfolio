@@ -10,9 +10,9 @@ const Background = () => {
       <div className="pink-circle">
         <SVG.BackgroundShapes.pinkCircle />
       </div>
-      {/* <div className="star">
+      <div className="star">
         <SVG.BackgroundShapes.star />
-      </div> */}
+      </div>
     </Holder>
   );
 };
@@ -40,7 +40,7 @@ const Holder = styled.div`
 
   .star {
     position: absolute;
-    top: 100em;
+    top: 75em;
     left: 10em;
     z-index: -1;
   }

@@ -26,6 +26,7 @@ const Holder = styled.div`
 
   .section {
     height: 100vh;
+    height: 100dvh;
     scroll-snap-align: start;
   }
 `;
