@@ -4,20 +4,29 @@ import Background from "./components/Background";
 import CenterText from "./components/CenterText";
 import Navbar from "./components/Navbar";
 import MarqueeTrack from "./components/MarqueeTrack";
+import { useRef } from "react";
 
 function App() {
+  const aboutRef = useRef(null);
+  const skillsRef = useRef(null);
+  const contactRef = useRef(null);
+
   return (
     <Holder>
       <Background />
-      <Navbar />
-      <div id="about" className="section">
+      <Navbar
+        aboutRef={aboutRef}
+        skillsRef={skillsRef}
+        contactRef={contactRef}
+      />
+      <div id="about" className="section" ref={aboutRef}>
         <CenterText />
         <MarqueeTrack />
       </div>
-      <div id="skills" className="section">
+      <div id="skills" className="section" ref={skillsRef}>
         <h1>hello</h1>
       </div>
-      <div id="contact" className="section">
+      <div id="contact" className="section" ref={contactRef}>
         <h1>hello</h1>
       </div>
     </Holder>

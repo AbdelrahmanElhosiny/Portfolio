@@ -1,24 +1,90 @@
+import { RefObject, useEffect } from "react";
 import styled from "@emotion/styled";
 import SVG from "../assets/SVG";
 import fonts from "../styles/fonts";
 import { Link } from "react-router-dom";
+import { motion, useAnimation, useInView } from "framer-motion";
 
-const Navbar = () => {
+type RefType = RefObject<Element>;
+
+interface Props {
+  aboutRef: RefType;
+  skillsRef: RefType;
+  contactRef: RefType;
+}
+
+const Navbar: React.FC<Props> = (props) => {
+  const { aboutRef, contactRef, skillsRef } = props;
+
+  const aboutIsInView = useInView(aboutRef, { amount: 0.5 });
+  const skillsIsInView = useInView(skillsRef, { amount: 0.5 });
+  const contactIsInView = useInView(contactRef, { amount: 0.5 });
+  const aboutIsVisible = useAnimation();
+  const skillsIsVisible = useAnimation();
+  const contactIsVisible = useAnimation();
+
+  const variants = {
+    hidden: { opacity: 0.3 },
+    visible: { opacity: 1 },
+  };
+
+  useEffect(() => {
+    if (aboutIsInView) {
+      aboutIsVisible.start("visible");
+    } else {
+      aboutIsVisible.start("hidden");
+    }
+    if (skillsIsInView) {
+      skillsIsVisible.start("visible");
+    } else {
+      skillsIsVisible.start("hidden");
+    }
+    if (contactIsInView) {
+      contactIsVisible.start("visible");
+    } else {
+      contactIsVisible.start("hidden");
+    }
+  }, [aboutIsInView, skillsIsInView, contactIsInView]);
+
   return (
     <Holder>
       <div className="logo">
         <SVG.Icons.logo />
       </div>
       <ul className="center-links">
-        <Link to="#about" className="link">
-          About
-        </Link>
-        <Link to="#skills" className="link">
-          Skills
-        </Link>
-        <Link to="#contact" className="link">
-          Contact
-        </Link>
+        <motion.div
+          className="about highlight"
+          whileHover="visible"
+          variants={variants}
+          initial="hidden"
+          animate={aboutIsVisible}
+        >
+          <Link to="#about" className="link">
+            About
+          </Link>
+        </motion.div>
+        <motion.div
+          className="skills highlight"
+          whileHover="visible"
+          variants={variants}
+          initial="hidden"
+          animate={skillsIsVisible}
+        >
+          <Link to="#skills" className="link">
+            Skills
+          </Link>
+        </motion.div>
+        <motion.div
+          className="contact highlight"
+          whileHover="visible"
+          variants={variants}
+          initial="hidden"
+          animate={contactIsVisible}
+        >
+          <Link to="#contact" className="link">
+            Contact
+          </Link>
+        </motion.div>
       </ul>
       <div className="button">
         <button className="download-cv-button">DOWNLOAD CV</button>
@@ -72,10 +138,6 @@ const Holder = styled.div`
     background: none;
     border: none;
     text-decoration: none;
-
-    :hover {
-      background-color: red;
-    }
   }
 
   .download-cv-button {
