@@ -54,7 +54,6 @@ const Navbar: React.FC<Props> = (props) => {
       <ul className="center-links">
         <motion.div
           className="about highlight"
-          whileHover="visible"
           variants={variants}
           initial="hidden"
           animate={aboutIsVisible}
@@ -65,7 +64,6 @@ const Navbar: React.FC<Props> = (props) => {
         </motion.div>
         <motion.div
           className="skills highlight"
-          whileHover="visible"
           variants={variants}
           initial="hidden"
           animate={skillsIsVisible}
@@ -76,7 +74,6 @@ const Navbar: React.FC<Props> = (props) => {
         </motion.div>
         <motion.div
           className="contact highlight"
-          whileHover="visible"
           variants={variants}
           initial="hidden"
           animate={contactIsVisible}
@@ -146,6 +143,13 @@ const Holder = styled.div`
     border: none;
     font-size: 1.5em;
     color: #ffffff;
+  }
+
+  .highlight {
+    transition: opacity 0.3s;
+    :hover {
+      opacity: 1 !important;
+    }
   }
 `;
 
