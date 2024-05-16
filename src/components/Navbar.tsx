@@ -51,7 +51,7 @@ const Navbar: React.FC<Props> = (props) => {
       <div className="logo">
         <SVG.Icons.logo />
       </div>
-      <ul className="center-links">
+      <div className="center-links">
         <motion.div
           className="about highlight"
           variants={variants}
@@ -82,8 +82,8 @@ const Navbar: React.FC<Props> = (props) => {
             Contact
           </Link>
         </motion.div>
-      </ul>
-      <div className="button">
+      </div>
+      <div className="end-button">
         <button className="download-cv-button">DOWNLOAD CV</button>
         <SVG.Icons.buttonArrow />
       </div>
@@ -92,12 +92,13 @@ const Navbar: React.FC<Props> = (props) => {
 };
 
 const Holder = styled.div`
+  user-select: none;
   position: fixed;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1.5fr 1fr;
   align-items: center;
   padding-inline: 4em;
   height: 6em;
-  justify-content: space-between;
   width: calc(100% - 8em);
   z-index: 10;
   backdrop-filter: blur(20px);
@@ -108,33 +109,26 @@ const Holder = styled.div`
   );
 
   .logo svg {
-    width: 4em;
-  }
-  .logo {
-    @media (min-width: 1000px) {
-      min-width: 12.65em;
-    }
+    width: 4rem;
   }
 
   .center-links {
     display: flex;
     justify-content: space-between;
-    width: 50%;
-    max-width: 22em;
-    padding: 0;
-    font-size: 1.5em;
-    ${fonts.NavText}
-    color: #ffffff;
-    justify-self: center;
+    align-items: center;
   }
 
   .link {
-    font-family: inherit;
-    font-size: inherit;
-    color: inherit;
-    background: none;
-    border: none;
+    ${fonts.NavText}
+    font-size: 1.5rem;
+    color: #ffffff;
     text-decoration: none;
+  }
+
+  .end-button {
+    display: flex;
+    justify-content: end;
+    align-items: center;
   }
 
   .download-cv-button {

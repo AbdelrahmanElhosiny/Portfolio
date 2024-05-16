@@ -39,6 +39,7 @@ const Holder = styled.div`
   .section {
     height: 100vh;
     height: 100dvh;
+    scroll-margin: 5rem;
   }
 `;
 

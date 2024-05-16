@@ -43,6 +43,7 @@ const MarqueeGroup = () => {
 };
 
 const Holder = styled.div`
+  user-select: none;
   position: relative;
   display: flex;
   align-items: center;

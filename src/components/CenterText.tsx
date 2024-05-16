@@ -13,6 +13,7 @@ const CenterText = () => {
 };
 
 const Holder = styled.div`
+  user-select: none;
   position: relative;
   top: 6em;
 
