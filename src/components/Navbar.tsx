@@ -113,9 +113,17 @@ const Holder = styled.div`
   }
 
   .center-links {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .skills {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: center;
+  }
+  .contact {
+    display: flex;
+    justify-content: end;
   }
 
   .link {
