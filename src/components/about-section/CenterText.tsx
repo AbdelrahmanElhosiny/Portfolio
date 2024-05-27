@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import fonts from "../styles/fonts";
+import fonts from "../../styles/fonts";
 
 const CenterText = () => {
   return (
@@ -18,7 +18,7 @@ const Holder = styled.div`
   top: 6em;
 
   .center-text {
-    font-size: 4.5em;
+    font-size: 4em;
     ${fonts.CenterText}
     display: grid;
   }

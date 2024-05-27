@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
-import fonts from "../styles/fonts";
-import SVG from "../assets/SVG";
+import fonts from "../../styles/fonts";
+import SVG from "../../assets/SVG";
 
 const MarqueeTrack = () => {
   return (
@@ -44,10 +44,10 @@ const MarqueeGroup = () => {
 
 const Holder = styled.div`
   user-select: none;
-  position: relative;
+  position: absolute;
   display: flex;
   align-items: center;
-  top: 24em;
+  top: 50em;
   left: -2em;
   width: 104vw;
   height: 6em;

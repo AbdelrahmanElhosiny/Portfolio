@@ -1,10 +1,13 @@
 import styled from "@emotion/styled";
 import "./App.css";
 import Background from "./components/Background";
-import CenterText from "./components/CenterText";
 import Navbar from "./components/Navbar";
-import MarqueeTrack from "./components/MarqueeTrack";
+import CenterText from "./components/about-section/CenterText";
+import MarqueeTrack from "./components/about-section/MarqueeTrack";
 import { useRef } from "react";
+import fonts from "./styles/fonts";
+import Description from "./components/about-section/Description";
+import Carousel from "./components/skills-section/Carousel";
 
 function App() {
   const aboutRef = useRef(null);
@@ -19,15 +22,21 @@ function App() {
         skillsRef={skillsRef}
         contactRef={contactRef}
       />
-      <div id="about" className="section" ref={aboutRef}>
+      <div id="about" className="about-section" ref={aboutRef}>
         <CenterText />
+        <Description />
         <MarqueeTrack />
       </div>
       <div id="skills" className="section" ref={skillsRef}>
-        <h1>hello</h1>
+        <div className="title">
+          <h1>Skills</h1>
+          <Carousel />
+        </div>
       </div>
       <div id="contact" className="section" ref={contactRef}>
-        <h1>hello</h1>
+        <div className="title">
+          <h1>Contact</h1>
+        </div>
       </div>
     </Holder>
   );
@@ -35,11 +44,24 @@ function App() {
 
 const Holder = styled.div`
   position: relative;
+  width: 100%;
 
-  .section {
+  .about-section {
     height: 100vh;
     height: 100dvh;
+  }
+  .section {
+    height: calc(100vh - 5rem);
     scroll-margin: 5rem;
+  }
+
+  .title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    ${fonts.CenterText}
+    color: #ffffff;
+    font-size: 2em;
   }
 `;
 
