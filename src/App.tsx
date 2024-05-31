@@ -30,6 +30,8 @@ function App() {
       <div id="skills" className="section" ref={skillsRef}>
         <div className="title">
           <h1>Skills</h1>
+        </div>
+        <div className="carousel-wrapper">
           <Carousel />
         </div>
       </div>
@@ -62,6 +64,12 @@ const Holder = styled.div`
     ${fonts.CenterText}
     color: #ffffff;
     font-size: 2em;
+  }
+
+  .carousel-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 `;
 
