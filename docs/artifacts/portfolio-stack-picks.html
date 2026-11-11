@@ -1,0 +1,431 @@
+<title>Portfolio Stack Picks</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Space+Grotesk:wght@500;600&display=swap">
+<style>
+/* Layout: one reading column (max 920px); tables and the diagram scroll inside their own boxes on phones */
+:root {
+  --bg: #F4F6F9;
+  --surface: #FFFFFF;
+  --fg: #16202B;
+  --muted: #576373;
+  --line: #DAE0E8;
+  --accent: #1F5FD1;
+  --accent-soft: #E5EDFB;
+  --ok: #1D7549;
+  --ok-soft: #E2F2E9;
+  --font-display: "Space Grotesk", "IBM Plex Sans", system-ui, sans-serif;
+  --font-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0F141A; --surface: #161D26; --fg: #E5E9EF; --muted: #9AA6B5; --line: #2A3441;
+    --accent: #7EA6F4; --accent-soft: #1A2944; --ok: #5DC48E; --ok-soft: #143026;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0F141A; --surface: #161D26; --fg: #E5E9EF; --muted: #9AA6B5; --line: #2A3441;
+  --accent: #7EA6F4; --accent-soft: #1A2944; --ok: #5DC48E; --ok-soft: #143026;
+  color-scheme: dark;
+}
+body { background: var(--bg); color: var(--fg); font: 16px/1.6 var(--font-body); }
+.wrap {
+  max-width: 920px; margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 48px 96px;
+  display: grid; gap: 56px;
+}
+h1, h2, h3 { font-family: var(--font-display); font-weight: 600; line-height: 1.2; text-wrap: balance; margin: 0; }
+h1 { font-size: clamp(2rem, 5vw, 2.8rem); letter-spacing: -0.01em; }
+h2 { font-size: 1.55rem; }
+h3 { font-size: 1.08rem; }
+p { margin: 0; max-width: 68ch; }
+a { color: var(--accent); }
+.eyebrow { font: 500 0.75rem/1.4 var(--font-mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+section { display: grid; gap: 18px; min-width: 0; }
+.lede { font-size: 1.12rem; color: var(--muted); }
+header { display: grid; gap: 14px; }
+nav { display: flex; flex-wrap: wrap; gap: 6px 14px; font: 0.85rem var(--font-mono); }
+nav a { text-decoration: none; color: var(--muted); }
+nav a:hover, nav a:focus-visible { color: var(--accent); text-decoration: underline; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.summary { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 20px 22px; display: grid; gap: 10px; }
+.summary dl { display: grid; grid-template-columns: 9.5rem 1fr; gap: 8px 16px; margin: 0; }
+.summary dt { font: 500 0.78rem/1.6 var(--font-mono); text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); padding-top: 2px; }
+.summary dd { margin: 0; min-width: 0; }
+
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.panel { border: 1px solid var(--line); border-radius: 10px; padding: 18px 20px; display: grid; gap: 10px; align-content: start; background: var(--surface); min-width: 0; }
+.panel ul, .plain { margin: 0; padding-left: 1.1rem; display: grid; gap: 6px; }
+.panel .eyebrow { color: var(--accent); }
+
+.tbl-box { overflow-x: auto; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); }
+table { border-collapse: collapse; width: 100%; font-size: 0.93rem; }
+.tools { min-width: 760px; }
+.proof { min-width: 520px; }
+.costs { min-width: 420px; }
+th { text-align: left; font: 500 0.72rem/1.4 var(--font-mono); text-transform: uppercase; letter-spacing: 0.07em; color: var(--muted); padding: 12px 14px; border-bottom: 1px solid var(--line); }
+td { padding: 11px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+tr:last-child td { border-bottom: 0; }
+tr.group td { background: var(--bg); font: 600 0.78rem var(--font-mono); text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); padding-block: 8px; }
+td.pick { font-weight: 600; }
+td.alt { color: var(--muted); }
+.num { font-variant-numeric: tabular-nums; text-align: right; white-space: nowrap; }
+tr.total td { font-weight: 600; }
+
+.chip { display: inline-block; font: 500 0.72rem/1 var(--font-mono); padding: 5px 8px; border-radius: 999px; white-space: nowrap; }
+.chip.core { background: var(--accent-soft); color: var(--accent); }
+.chip.common { border: 1px solid var(--line); color: var(--fg); }
+.chip.bonus { border: 1px dashed var(--line); color: var(--muted); }
+.legend { font-size: 0.85rem; color: var(--muted); display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center; }
+
+.cards { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.card { border: 1px solid var(--line); border-radius: 10px; padding: 18px 20px; background: var(--surface); display: grid; gap: 8px; align-content: start; min-width: 0; }
+.card.rec { border: 2px solid var(--accent); }
+.card-head { display: flex; justify-content: space-between; gap: 10px; align-items: baseline; flex-wrap: wrap; }
+.cost { font: 600 1.35rem var(--font-display); font-variant-numeric: tabular-nums; }
+.pill { font: 500 0.7rem/1 var(--font-mono); text-transform: uppercase; letter-spacing: 0.06em; padding: 5px 8px; border-radius: 999px; background: var(--accent); color: var(--surface); }
+.pill.lab { background: var(--ok-soft); color: var(--ok); }
+.card dl { margin: 0; display: grid; gap: 4px; font-size: 0.92rem; }
+.card dt { font: 500 0.7rem var(--font-mono); text-transform: uppercase; letter-spacing: 0.07em; color: var(--muted); margin-top: 4px; }
+.card dd { margin: 0; }
+.note { font-size: 0.85rem; color: var(--muted); }
+
+.diagram { margin: 0; display: grid; gap: 10px; }
+.diagram-box { overflow-x: auto; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); padding: 16px; }
+.diagram pre.mermaid { margin: 0; min-width: 680px; background: transparent; font-family: var(--font-body); }
+figcaption { font-size: 0.9rem; color: var(--muted); max-width: 72ch; }
+
+.strip { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; counter-reset: s; }
+.strip li { counter-increment: s; display: flex; align-items: center; gap: 8px; border: 1px solid var(--line); background: var(--surface); border-radius: 8px; padding: 7px 12px; font-size: 0.9rem; }
+.strip li::before { content: counter(s); font: 600 0.75rem var(--font-mono); color: var(--accent); }
+.strip li.opt { border-style: dashed; color: var(--muted); }
+
+.decisions { margin: 0; padding-left: 1.3rem; display: grid; gap: 14px; }
+.decisions li { padding-left: 4px; }
+.decisions .q { font-weight: 600; }
+.decisions .my { display: block; color: var(--muted); font-size: 0.93rem; margin-top: 2px; }
+.decisions .my b { color: var(--accent); font-weight: 600; }
+.cvline { font-family: var(--font-mono); font-size: 0.88rem; background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--accent); border-radius: 6px; padding: 14px 16px; line-height: 1.6; }
+
+@media (max-width: 680px) {
+  .two, .cards { grid-template-columns: 1fr; }
+  .summary dl { grid-template-columns: 1fr; gap: 2px; }
+  .summary dd { margin-bottom: 8px; }
+  .wrap { gap: 44px; }
+}
+</style>
+
+<div class="wrap">
+<header>
+  <p class="eyebrow">Decision brief · Draft 1 · 11 Nov 2026</p>
+  <h1>Portfolio Stack Picks</h1>
+  <p class="lede">One site with two jobs. Visitors see your frontend craft. The repo and the running system prove you can build, ship and run it yourself. This page picks the tools for that, so we can agree before writing the plan.</p>
+  <nav aria-label="Sections">
+    <a href="#short">Short version</a>
+    <a href="#recruiters">What recruiters see</a>
+    <a href="#architecture">Architecture</a>
+    <a href="#hosting">Hosting</a>
+    <a href="#tools">Tools</a>
+    <a href="#learning">Learning path</a>
+    <a href="#scope">Scope</a>
+    <a href="#decisions">Decisions</a>
+  </nav>
+</header>
+
+<section id="short" aria-labelledby="short-h">
+  <h2 id="short-h">The short version</h2>
+  <div class="summary">
+    <dl>
+      <dt>Frontend</dt><dd>React + TypeScript + Vite, the same stack as A-Store. GSAP for the scroll effects. Admin is a separate small app.</dd>
+      <dt>Backend</dt><dd>A separate Node.js + Fastify API with PostgreSQL. The frontend never touches the database.</dd>
+      <dt>Platform</dt><dd>AWS only. k3s Kubernetes on one EC2 t4g.small spot server (2 vCPU, 2 GB), inside a VPC you build. First by hand, then with Terraform.</dd>
+      <dt>Delivery</dt><dd>GitHub Actions tests, builds and scans images. Flux deploys them from git. It is lighter than Argo CD, which matters on 2 GB.</dd>
+      <dt>Cost</dt><dd>About $11 a month, paid from AWS sign-up credits for about a year. A domain is extra, about $12–16 a year.</dd>
+      <dt>Your part</dt><dd>You do every Docker, Kubernetes, AWS, networking and CI step by hand. I write the app code, write a guide for each step, and check your work.</dd>
+    </dl>
+  </div>
+</section>
+
+<section id="recruiters" aria-labelledby="rec-h">
+  <h2 id="rec-h">What recruiters and hiring managers will see</h2>
+  <div class="two">
+    <div class="panel">
+      <p class="eyebrow">The 30-second look · recruiter</p>
+      <ul>
+        <li>A fast, polished page on your own domain, with HTTPS.</li>
+        <li>Their own name in the greeting when they open their personal link.</li>
+        <li>A small "How this site runs" section: Kubernetes on AWS, shipped by a pipeline you built.</li>
+        <li>Contact options that work on a phone in one tap.</li>
+      </ul>
+    </div>
+    <div class="panel">
+      <p class="eyebrow">The 10-minute look · engineer</p>
+      <ul>
+        <li>A README with the architecture diagram and a "rebuild from zero" section.</li>
+        <li>A green CI badge. The Actions tab shows tests, a security scan and builds on every push.</li>
+        <li>An <code>infra/</code> folder: Terraform for AWS, a Helm chart for the app.</li>
+        <li>Short decision notes: what you picked, what you turned down, and why.</li>
+        <li>Runbooks for restoring the database and rolling back a release, each tested once and dated.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Proof map</h3>
+  <div class="tbl-box">
+    <table class="proof">
+      <thead><tr><th>Skill</th><th>What proves it</th></tr></thead>
+      <tbody>
+        <tr><td class="pick">Frontend craft</td><td>The live page, the scroll effects, the A-Store before/after, a Lighthouse score</td></tr>
+        <tr><td class="pick">Backend</td><td>A separate API with sign-in, invite links, visit tracking and database migrations</td></tr>
+        <tr><td class="pick">Containers</td><td>Small multi-stage images that run as non-root, built for ARM</td></tr>
+        <tr><td class="pick">Kubernetes</td><td>Helm chart, health probes, Postgres on a volume, a NetworkPolicy that walls off the database</td></tr>
+        <tr><td class="pick">CI/CD</td><td>The Actions history and the Flux deploy and rollback history</td></tr>
+        <tr><td class="pick">Cloud and networking</td><td>Terraform for the VPC, firewall rules, DNS records and TLS certificates</td></tr>
+        <tr><td class="pick">Operations</td><td>Nightly backups to S3, a restore you have actually run, one alert that fires</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>An example CV line</h3>
+  <p class="cvline">Built and run my portfolio on AWS: Terraform-built VPC and EC2, single-node k3s Kubernetes on spot, Helm and Flux (GitOps), GitHub Actions CI with image scanning, a Node.js API with PostgreSQL and automated S3 backups.</p>
+  <p class="note">Say it plainly. This is one server, so it has no high availability, and it is not "production Kubernetes at scale". Write down that limit and what you would change for more traffic. Engineers trust a candidate who states the trade-offs. The EKS weekend lab below lets you talk about managed clusters from real experience.</p>
+</section>
+
+<section id="architecture" aria-labelledby="arch-h">
+  <h2 id="arch-h">How it fits together</h2>
+  <figure class="diagram">
+    <div class="diagram-box">
+<pre class="mermaid">
+flowchart LR
+  B["Visitor browser"]
+  subgraph AWS["AWS account · built with Terraform"]
+    R53["Route 53<br/>DNS"]
+    S3["S3<br/>backups"]
+    subgraph VPC["VPC · firewall allows 80 and 443 only"]
+      subgraph K3S["EC2 t4g.small spot · k3s Kubernetes"]
+        T["Traefik<br/>routing + HTTPS"]
+        SITE["site<br/>yourname.dev"]
+        ADM["admin<br/>admin.yourname.dev"]
+        API["api · Fastify<br/>yourname.dev/api"]
+        PG[("Postgres<br/>on a disk volume")]
+        ARGO["Flux"]
+      end
+    end
+  end
+  subgraph SHIP["Shipping a change"]
+    YOU["You<br/>git push"]
+    GHA["GitHub Actions<br/>test · build · scan"]
+    GHCR["GHCR<br/>container images"]
+    CFG["Deploy config<br/>Helm values in git"]
+  end
+  B -- "1 · find IP" --> R53
+  B -- "2 · HTTPS" --> T
+  T -- "domain" --> SITE
+  T -- "admin host" --> ADM
+  T -- "/api path" --> API
+  API -- "SQL" --> PG
+  PG -- "every night" --> S3
+  YOU -- "push" --> GHA
+  GHA -- "image" --> GHCR
+  GHA -- "bump tag" --> CFG
+  ARGO -- "pulls changes" --> CFG
+  ARGO -- "deploys" --> SITE
+</pre>
+    </div>
+    <figcaption>A visit: the browser looks up your server's address in Route 53, then talks HTTPS to Traefik, which sends each host or path to its app. Only the API talks to Postgres. A change: Actions tests and builds the images, then bumps the image tag in git. Flux runs inside the cluster, sees the new tag and rolls it out. CI never holds keys to the cluster.</figcaption>
+  </figure>
+</section>
+
+<section id="hosting" aria-labelledby="host-h">
+  <h2 id="host-h">Where to run it</h2>
+  <p class="note">Costs are approximate, us-east-1, on-demand, per month.</p>
+  <div class="cards">
+    <article class="card">
+      <div class="card-head"><h3>A · Vercel + MongoDB Atlas</h3><span class="cost">$0</span></div>
+      <dl>
+        <dt>You learn</dt><dd>Almost no infrastructure. The platform does it for you.</dd>
+        <dt>On your CV</dt><dd>Weak for DevOps.</dd>
+        <dt>Verdict</dt><dd>Not chosen: you want AWS only. It also hides exactly what you want to learn.</dd>
+      </dl>
+    </article>
+    <article class="card">
+      <div class="card-head"><h3>B · A cheap VPS + k3s</h3><span class="cost">€5–8</span></div>
+      <dl>
+        <dt>You learn</dt><dd>Linux, Kubernetes, DNS, TLS.</dd>
+        <dt>On your CV</dt><dd>Medium. No big cloud provider.</dd>
+        <dt>Verdict</dt><dd>Not chosen: you want AWS only.</dd>
+      </dl>
+    </article>
+    <article class="card rec">
+      <div class="card-head"><h3>C · AWS only, credits-funded</h3><span class="pill">Chosen</span></div>
+      <span class="cost">≈ $11</span>
+      <dl>
+        <dt>Setup</dt><dd>One EC2 t4g.small spot server (2 vCPU, 2 GB) running k3s, in a VPC built with Terraform.</dd>
+        <dt>You learn</dt><dd>Linux, Kubernetes, DNS, TLS, plus VPC, subnets, routing, security groups, IAM, Route 53, S3, spot instances and Terraform on AWS.</dd>
+        <dt>On your CV</dt><dd>Strong. AWS is the cloud named most often in job posts.</dd>
+        <dt>Paid by</dt><dd>Sign-up credits, for about a year.</dd>
+      </dl>
+    </article>
+    <article class="card">
+      <div class="card-head"><h3>D · AWS EKS</h3><span class="pill lab">Weekend lab</span></div>
+      <span class="cost">~$170 if left on</span>
+      <dl>
+        <dt>You learn</dt><dd>Managed Kubernetes, node groups, AWS load balancers.</dd>
+        <dt>On your CV</dt><dd>The strongest, but too costly to keep running.</dd>
+        <dt>Verdict</dt><dd>Build it with Terraform, deploy the same Helm chart, destroy it. About $10 for a weekend, paid from credits.</dd>
+      </dl>
+    </article>
+  </div>
+
+  <h3>Option C, line by line</h3>
+  <div class="tbl-box">
+    <table class="costs">
+      <thead><tr><th>Item</th><th class="num">Per month</th></tr></thead>
+      <tbody>
+        <tr><td>EC2 t4g.small spot (2 vCPU, 2 GB)</td><td class="num">~$5.60</td></tr>
+        <tr><td>Public IPv4 address</td><td class="num">$3.65</td></tr>
+        <tr><td>Disk (EBS)</td><td class="num">~$1.60</td></tr>
+        <tr><td>Route 53 hosted zone</td><td class="num">$0.50</td></tr>
+        <tr class="total"><td>Total</td><td class="num">≈ $11</td></tr>
+        <tr><td>Domain name, extra</td><td class="num">~$12–16 a year</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <h3>How the credits work</h3>
+  <ul class="plain">
+    <li>New AWS accounts get $100 at sign-up, plus up to $100 more for five small setup tasks. One of them is setting an AWS Budget.</li>
+    <li>Upgrade to the paid plan before the free plan's 6 months end, or the account is suspended.</li>
+    <li>Credits stay usable for 12 months from sign-up, so they pay for about a year of this setup.</li>
+    <li>Check which charges the credits don't cover. Domain registration is likely not covered.</li>
+    <li>When the credits run out, keep paying about $11 a month, or shut it down and rebuild it with one command from Terraform and Helm for interview demos.</li>
+  </ul>
+  <p class="note">2 GB of memory is tight, which is why Flux replaces Argo CD. AWS can take a spot server back at short notice. A one-instance Auto Scaling group starts a replacement and reattaches the data disk (EBS), so the database survives. Setting that up is a lesson in itself.</p>
+</section>
+
+<section id="tools" aria-labelledby="tools-h">
+  <h2 id="tools-h">Tool picks, layer by layer</h2>
+  <div class="legend">
+    <span>Signal is my read of junior and mid-level frontend and DevOps job posts. It is not a measured count.</span>
+    <span class="chip core">Core ask</span><span class="chip common">Common ask</span><span class="chip bonus">Bonus</span>
+  </div>
+  <div class="tbl-box">
+    <table class="tools">
+      <thead><tr><th>Layer</th><th>Pick</th><th>Instead of</th><th>Why</th><th>Signal</th></tr></thead>
+      <tbody>
+        <tr class="group"><td colspan="5">App</td></tr>
+        <tr><td>Public site</td><td class="pick">React + TS + Vite</td><td class="alt">Next.js</td><td>Same stack as A-Store; static files keep the frontend free of server code.</td><td><span class="chip core">Core ask</span></td></tr>
+        <tr><td>Scroll effects</td><td class="pick">GSAP + Motion</td><td class="alt">CSS only</td><td>The visible proof of frontend skill; the original cookbook carries over.</td><td><span class="chip bonus">Bonus</span></td></tr>
+        <tr><td>Admin</td><td class="pick">Separate Vite app</td><td class="alt">/admin in the site</td><td>Visitors never download admin code, and you get a second host to route.</td><td>–</td></tr>
+        <tr><td>API</td><td class="pick">Node.js + Fastify</td><td class="alt">NestJS, Go</td><td>One language end to end, with request validation built in.</td><td><span class="chip core">Core ask</span></td></tr>
+        <tr><td>Database</td><td class="pick">PostgreSQL + Drizzle</td><td class="alt">MongoDB</td><td>Invites, visits and events are linked tables; SQL is the most asked database skill.</td><td><span class="chip core">Core ask</span></td></tr>
+        <tr class="group"><td colspan="5">Delivery</td></tr>
+        <tr><td>Containers</td><td class="pick">Docker + Compose</td><td class="alt">–</td><td>You know it; the new part is small, non-root, ARM images.</td><td><span class="chip core">Core ask</span></td></tr>
+        <tr><td>CI</td><td class="pick">GitHub Actions + Trivy</td><td class="alt">GitLab CI, Jenkins</td><td>Free, visible on the repo, and the most common.</td><td><span class="chip core">Core ask</span></td></tr>
+        <tr><td>Images</td><td class="pick">GHCR</td><td class="alt">ECR</td><td>Free and built into GitHub; ECR can come later.</td><td><span class="chip common">Common ask</span></td></tr>
+        <tr><td>CD</td><td class="pick">Flux (GitOps)</td><td class="alt">Argo CD (minimal "core" mode)</td><td>Lighter on 2 GB; the cluster pulls changes, and rollback is a git revert.</td><td><span class="chip common">Common ask</span></td></tr>
+        <tr><td>Packaging</td><td class="pick">Helm</td><td class="alt">Kustomize</td><td>One chart for local and live, with different values.</td><td><span class="chip common">Common ask</span></td></tr>
+        <tr class="group"><td colspan="5">Platform</td></tr>
+        <tr><td>Kubernetes</td><td class="pick">k3s (k3d on your Mac)</td><td class="alt">EKS, minikube</td><td>Real, certified Kubernetes on one small server; the same thing runs locally.</td><td><span class="chip core">Core ask</span></td></tr>
+        <tr><td>Traffic + HTTPS</td><td class="pick">Traefik + cert-manager</td><td class="alt">ingress-nginx</td><td>ingress-nginx was retired in March 2026; Traefik ships with k3s.</td><td><span class="chip common">Common ask</span></td></tr>
+        <tr><td>Cloud</td><td class="pick">AWS (EC2 spot, VPC, Route 53, S3, IAM)</td><td class="alt">GCP, Azure</td><td>The cloud named most often in job posts.</td><td><span class="chip core">Core ask</span></td></tr>
+        <tr><td>Infra as code</td><td class="pick">Terraform</td><td class="alt">Console only, Pulumi</td><td>Build by hand once to understand it, then rebuild with code.</td><td><span class="chip core">Core ask</span></td></tr>
+        <tr><td>Secrets</td><td class="pick">Sealed Secrets</td><td class="alt">External Secrets</td><td>Secrets can live in git encrypted, which GitOps needs.</td><td><span class="chip bonus">Bonus</span></td></tr>
+        <tr><td>Server access</td><td class="pick">SSM Session Manager</td><td class="alt">SSH on port 22</td><td>No open SSH port; a security habit you can explain.</td><td><span class="chip bonus">Bonus</span></td></tr>
+        <tr><td>Monitoring (later)</td><td class="pick">Grafana Cloud free + Alloy</td><td class="alt">Self-hosted Prometheus</td><td>Dashboards and alerts without using up the server's memory.</td><td><span class="chip common">Common ask</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="learning" aria-labelledby="learn-h">
+  <h2 id="learn-h">How the learning works</h2>
+  <p>Each stage ends with something that works on its own. Dashed stages are optional.</p>
+  <ol class="strip" aria-label="Stages in order">
+    <li>App on your Mac (Compose)</li>
+    <li>Kubernetes on your Mac (k3d)</li>
+    <li>AWS by hand</li>
+    <li>Same AWS in Terraform</li>
+    <li>Live on your domain</li>
+    <li>CI pipeline</li>
+    <li>CD with Flux</li>
+    <li>Backups and monitoring</li>
+    <li class="opt">EKS weekend lab</li>
+  </ol>
+  <div class="two">
+    <div class="panel">
+      <p class="eyebrow">I do</p>
+      <ul>
+        <li>Write all the app code: site, admin, API, database schema, tests.</li>
+        <li>Write a guide for each stage.</li>
+        <li>Review everything you write and every output you paste, then point out what to fix.</li>
+      </ul>
+    </div>
+    <div class="panel">
+      <p class="eyebrow">You do</p>
+      <ul>
+        <li>Dockerfiles, Compose, Kubernetes YAML, the Helm chart.</li>
+        <li>AWS console work, then the same in Terraform.</li>
+        <li>DNS, HTTPS, firewall rules, the GitHub Actions workflows, Flux.</li>
+        <li>Run the check commands and paste the output to me.</li>
+      </ul>
+    </div>
+  </div>
+  <h3>What each stage guide contains</h3>
+  <ul class="plain">
+    <li>What you're building and why, in plain words, with a diagram.</li>
+    <li>Your steps, in order.</li>
+    <li>Check commands and the output you should see.</li>
+    <li>What to paste to me for review.</li>
+    <li>Common mistakes at this stage.</li>
+    <li>Interview questions you can answer once it's done.</li>
+  </ul>
+</section>
+
+<section id="scope" aria-labelledby="scope-h">
+  <h2 id="scope-h">What the site and admin do in v1</h2>
+  <div class="two">
+    <div class="panel">
+      <p class="eyebrow">Public page · one scroll</p>
+      <ul>
+        <li>Welcome: a placeholder until it gets its own design session.</li>
+        <li>About: your path as a timeline, frontend → backend → DevOps → frontend.</li>
+        <li>Tech stack, grouped, with an honest level for each.</li>
+        <li>Projects: A-Store before and after, with live links and real numbers.</li>
+        <li>How this site runs: a simple version of the diagram above. New.</li>
+        <li>Contact. Phone and WhatsApp can be shown to invited visitors only.</li>
+      </ul>
+      <p class="note">You choose the look from mockups in a later session.</p>
+    </div>
+    <div class="panel">
+      <p class="eyebrow">Admin</p>
+      <ul>
+        <li>Sign in with a password plus a 6-digit code from an authenticator app.</li>
+        <li>Site content: edit your profile, section text, projects and contact details, and choose what the public page shows.</li>
+        <li>Invites: one link per person, with name, company, role and greeting. Choose what that person sees. Copy, block or delete the link.</li>
+        <li>Visits: when each link was opened, on what device, which sections were read, for how long, and what was clicked.</li>
+      </ul>
+    </div>
+  </div>
+  <p><strong>Later:</strong> printable QR cards, a résumé PDF stamped per invite, an email alert on first open, a log of link previews, city-level location.</p>
+  <p class="note">Kept from the original spec: the invite code format, counting a visit only when the page's script runs (so link previews never count), the privacy note, data that deletes itself, and the scroll-effects cookbook.</p>
+</section>
+
+<section id="decisions" aria-labelledby="dec-h">
+  <h2 id="dec-h">Decisions needed</h2>
+  <ol class="decisions">
+    <li><span class="q">Hosting and budget</span><span class="my"><b>Decided:</b> AWS only, about $11 a month from credits.</span></li>
+    <li><span class="q">How much of the infrastructure do you write yourself?</span><span class="my"><b>My pick:</b> all of it, with my review after each step. Or I give you a skeleton to finish, or I write it and walk you through it.</span></li>
+    <li><span class="q">PostgreSQL instead of MongoDB?</span><span class="my"><b>My pick:</b> yes.</span></li>
+    <li><span class="q">A React + Vite app instead of Next.js?</span><span class="my"><b>My pick:</b> yes. It matches A-Store and keeps the frontend free of server code.</span></li>
+    <li><span class="q">Do you already have a domain name?</span><span class="my">Needed by stage 5, and before anything gets printed.</span></li>
+    <li><span class="q">How many hours a week can you give this?</span><span class="my">It sets how big each stage guide is.</span></li>
+    <li><span class="q">Public or private repo?</span><span class="my"><b>My pick:</b> public. Recruiters can only judge what they can open.</span></li>
+  </ol>
+</section>
+</div>
